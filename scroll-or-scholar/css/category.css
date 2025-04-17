@@ -1,0 +1,117 @@
+.header {
+    position: sticky;
+    display: flex;
+    width: 100%;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    z-index: 1000;
+    top: 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.category-page {
+    background: url(assets/bg/bg-2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.category-page .container {
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-page h2 {
+    color: var(--primary-color);
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: -30px;
+}
+
+.category-cards-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    text-align: center;
+}
+
+.category-card {
+    height: 350px;
+    border: 0.5px solid var(--primary-color);
+    border-radius: 5px;
+    color: var(--primary-color);
+}
+
+.category-card img {
+    height: 200px;
+    padding: 12px;
+    border-radius: 15px;
+}
+
+.category-card p {
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 300;
+    transition: var(--transition);
+}
+
+.category-card h4 {
+    color: var(--primary-color);
+    padding-top: 30px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.category-card:hover {
+    box-shadow: 0 0 20px var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+    transition: var(--transition);
+}
+
+.category-card:hover h4,
+.category-card:hover p {
+    color: var(--accent-color);
+}
+
+.category-btn {
+    margin: 30px 50px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    .category-page h2 {
+        font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .category-cards-wrapper {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .category-btn {
+        justify-content: center;
+        margin: 30px 0;
+    }
+}
