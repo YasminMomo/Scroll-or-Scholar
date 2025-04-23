@@ -16,7 +16,7 @@
 }
 
 .category-page {
-    background: url(assets/bg/bg-2.png);
+    background: url(/assets/bg/bg-2.png);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -96,6 +96,11 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.category-card.selected {
+    border: 2px solid #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  }
 
 @media (max-width: 768px) {
     .category-page h2 {
