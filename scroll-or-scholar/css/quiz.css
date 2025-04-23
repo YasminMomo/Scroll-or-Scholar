@@ -25,7 +25,7 @@
 }
 
 .quiz-page {
-    background: url(assets/bg/bg-4.png);
+    background: url(/assets/bg/bg-4.png);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -108,6 +108,21 @@
     cursor: pointer;
     transition: background-color 0.3s;
 }
+  
+  .choice-card.selected {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .choice-card.correct {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .choice-card.incorrect {
+    background-color: #F44336;
+    color: white;
+  }
 
 .choice-card:hover {
     background-color: var(--primary-color);
