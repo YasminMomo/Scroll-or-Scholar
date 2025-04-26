@@ -115,59 +115,124 @@ const quizData = {
     ],
     "pinoy-memes": [
       {
-        question: "Complete the viral phrase: 'Ang pinaka-malaking red flag sa isang lalaki ay ___'",
-        options: [
-          "Kapag siya ay walang trabaho",
-          "Kapag hindi siya nag-aabot ng pera sa bahay",
-          "Kapag siya ay babaero", 
-          "Kapag siya ay naniniwala na flat ang Earth"
+        "question": "Sino ang kumanta ng linyang ito? \"'Di mapigilang mag-isip Na baka sa tagal, mahulog ang loob mo sa iba🥶\"",
+        "options": [
+          "Orange and Lemons",
+          "Callalily",
+          "Skusta Clee",
+          "None of the Above"
         ],
-        correctAnswer: 3,
-        hint: "It's about a controversial scientific belief."
+        "correctAnswer": 3,
+        "hint": "Consider whether any of these artists sang this specific line.",
+        "video": "assets/videos/q1.mp4"
       },
       {
-        question: "What character is associated with the viral 'Emotional Damage' meme?",
-        options: [
-          "Uncle Roger",
-          "Steven He",
-          "Jo Koy",
-          "Michael V"
+        "question": "Complete the lyrics: \"Ang rizzmas ay sumapit, ______________\"",
+        "options": [
+          "Tayo ay mangagsiawit",
+          "tayo ay magsipagmewing",
+          "Skibidi cavite awit",
+          "Mga bata'y nagsi-holy spirit"
         ],
-        correctAnswer: 1,
-        hint: "This comedian plays a strict Asian father character."
+        "correctAnswer": 2,
+        "hint": "This is a humorous parody of a traditional Filipino Christmas carol.",
+        "video": "assets/videos/q1.mp4"
       },
       {
-        question: "What is the name of the viral dance trend that became popular in the Philippines in 2023-2024 with the 'Saan ka punta?' song?",
-        options: [
-          "Budots Dance",
-          "The Shuffle",
-          "Binibining Marikit",
-          "Spaghetti Dance"
+        "question": "What is he about to say in this video?",
+        "options": [
+          "\"Anong say mo, beb?\"",
+          "\"Allen Kalbo!\"",
+          "\"Tol, 'di ka na cute.\"",
+          "\"Wala na, finish na.\""
         ],
-        correctAnswer: 2,
-        hint: "The song title refers to a beautiful lady."
+        "correctAnswer": 1,
+        "hint": "It's a catchphrase that became a popular meme in Filipino social media.",
+        "video": "assets/videos/q1.mp4"
       },
       {
-        question: "Complete the viral Filipino food review quote: '_____, 10/10!'",
-        options: [
-          "Sarap nito",
-          "Perfect yan",
-          "Pwede na",
-          "Isang kagat, solve ang gutom"
+        "question": "Which controversial line became viral during a Philippine online class after this moment?",
+        "options": [
+          "\"Get that thirty, bro.\"",
+          "\"You want a medal for that?\"",
+          "\"Mic mo, bro, nakabukas pa.\"",
+          "\"Pasa mo 'yan sa GC.\""
         ],
-        correctAnswer: 3,
-        hint: "It suggests one bite is enough to satisfy hunger."
+        "correctAnswer": 0,
+        "hint": "It was related to getting a certain score on an assignment.",
+        "video": "assets/videos/q1.mp4"
       },
       {
-        question: "What does 'NKKLK' stand for in Filipino internet slang?",
-        options: [
-          "Nakaka-loka",
-          "Nakakakilig",
-          "Nakakahiya",
-          "Nakakalakas"
+        "question": "What does \"www\" supposedly mean based on the viral meme?",
+        "options": [
+          "World Wide Web",
+          "Wowowin",
+          "Weh, Walang WiFi?",
+          "Willie's Wild Website"
         ],
-        correctAnswer: 0,
-        hint: "It expresses disbelief or craziness."
+        "correctAnswer": 1,
+        "hint": "It's related to a popular Filipino TV show.",
+        "video": "assets/videos/q1.mp4"
+      },
+      {
+        "question": "Which of the following lines is an iconic quote from Jodi Sta. Maria's role in the TV series 'The Broken Marriage Vow'?",
+        "options": [
+          "\"Papunta pa lang tayo sa exciting part!\"",
+          "\"Lahat ng hirap at sakit, ibabalik ko sa inyo. Matitikman ninyo ang batas ng isang api!\"",
+          "\"Hindi mo ako kayang patayin.\"",
+          "\"Mahal kita, pero hindi kita kayang pigilan.\""
+        ],
+        "correctAnswer": 0,
+        "hint": "This line became very popular and was used in many memes related to confrontations.",
+        "video": "assets/videos/q1.mp4"
+      },
+      {
+        "question": "What was the response in the video when asked, 'Malaki bayan?'",
+        "options": [
+          "\"Malaki to!\"",
+          "\"Babae po ako\"",
+          "Secreeeeet",
+          "[Stares in silence]"
+        ],
+        "correctAnswer": 1,
+        "hint": "The response clarified a misunderstanding about gender.",
+        "video": "assets/videos/q1.mp4"
+      },
+      {
+        "question": "Complete the lyrics: \"Ligaw na _____ sinalo, Di ko agad napagtanto\"",
+        "options": [
+          "Bala",
+          "Baka",
+          "Bata",
+          "Pera"
+        ],
+        "correctAnswer": 1,
+        "hint": "The word refers to an animal.",
+        "video": "assets/videos/q1.mp4"
+      },
+      {
+        "question": "Complete the message from the viral screenshot:",
+        "options": [
+          "Go away na",
+          "Sleep na lang",
+          "Eat na lang ngani",
+          "Touch myself lang"
+        ],
+        "correctAnswer": 3,
+        "hint": "This message became a popular meme for its unexpected and humorous nature.",
+        "video": "assets/videos/q1.mp4"
+      },
+      {
+        "question": "Complete the lyrics as sung by Marian Rivera: \"Story of my life searching for a life __________\"",
+        "options": [
+          "But it keeps avoiding me",
+          "Khipshy into foll on me",
+          "But it keeps on folding tea",
+          "Story keeps confusing me"
+        ],
+        "correctAnswer": 1,
+        "hint": "The pronunciation in the viral clip is what made this moment famous.",
+        "video": "assets/videos/q1.mp4"
       }
     ]
   };
