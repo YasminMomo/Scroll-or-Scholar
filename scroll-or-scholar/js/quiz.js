@@ -10,6 +10,7 @@ let timerInterval;
 let userAnswers = [];
 let answerLocked = false;
 
+
 document.addEventListener("DOMContentLoaded", () => {
   initializeQuiz();
 });
@@ -138,15 +139,11 @@ function setupEventListeners() {
   if (showAnswerLink) {
     showAnswerLink.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      // Lock answers so they can't be changed after showing the answer
       answerLocked = true;
-      
-      // Show correct answer without moving to next question
-      revealCorrectAnswer();
+      revealCorrectAnswer(); // This will now show the video if available
     });
   }
-  
+
   // Set up next button
   const nextBtn = document.querySelector('.result-btn a');
   if (nextBtn) {
@@ -169,28 +166,24 @@ function setupEventListeners() {
 }
 
 function startTimer() {
-  // Reset timer
-  timeLeft = 10;
-  document.getElementById('timer').textContent = formatTime(timeLeft);
-  
-  // Clear any existing intervals
-  if (timerInterval) {
-    clearInterval(timerInterval);
-  }
-  
-  // Start new timer
-  timerInterval = setInterval(() => {
-    timeLeft--;
+    timeLeft = 10;
     document.getElementById('timer').textContent = formatTime(timeLeft);
     
-    if (timeLeft <= 0) {
-      // Time's up - lock answers and reveal correct answer
+    if (timerInterval) {
       clearInterval(timerInterval);
-      answerLocked = true;
-      revealCorrectAnswer();
     }
-  }, 1000);
-}
+    
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      document.getElementById('timer').textContent = formatTime(timeLeft);
+      
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        revealCorrectAnswer();
+        answerLocked = true;
+      }
+    }, 1000);
+  }
 
 function resetTimer() {
   // Reset timer
@@ -207,17 +200,22 @@ function resetTimer() {
 }
 
 function revealCorrectAnswer() {
-  const choiceCards = document.querySelectorAll('.choice-card');
-  const correctAnswerIndex = questions[currentQuestionIndex].correctAnswer;
-  
-  choiceCards.forEach((card, i) => {
-    if (i === correctAnswerIndex) {
-      card.classList.add('correct');
-    } else if (userAnswers[currentQuestionIndex] === i) {
-      card.classList.add('incorrect');
+    const choiceCards = document.querySelectorAll('.choice-card');
+    const correctAnswerIndex = questions[currentQuestionIndex].correctAnswer;
+
+    choiceCards.forEach((card, i) => {
+      if (i === correctAnswerIndex) {
+        card.classList.add('correct');
+      } else if (userAnswers[currentQuestionIndex] === i) {
+        card.classList.add('incorrect');
+      }
+    });
+
+    const currentQuestion = questions[currentQuestionIndex];
+    if (currentQuestion.video) {
+      showVideoPopup(currentQuestion.video);
     }
-  });
-}
+  }
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
@@ -253,6 +251,94 @@ function finishQuiz() {
   // Navigate to results page
   window.location.href = 'results.html';
 }
+
+// Add this to your CSS or style section
+const style = document.createElement('style');
+style.textContent = `
+  .video-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+    .video-popup-content {
+    background: #4b1235;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    border: 2px solid #ffffff; /* Corrected color */
+  }
+  .close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+`;
+document.head.appendChild(style);
+
+// Add this HTML structure dynamically
+const popupHTML = `
+  <div class="video-popup">
+    <div class="video-popup-content">
+      <button class="close-popup">X</button>
+        <h3 style="color: white;">Answer</h3>
+      <div class="video-container"></div>
+    </div>
+  </div>
+`;
+document.body.insertAdjacentHTML('beforeend', popupHTML);
+
+// Get popup elements
+const videoPopup = document.querySelector('.video-popup');
+const closePopupBtn = document.querySelector('.close-popup');
+const videoContainer = document.querySelector('.video-container');
+
+// Close popup function
+function closeVideoPopup() {
+  videoPopup.style.display = 'none';
+  videoContainer.innerHTML = ''; // Clear the video
+}
+
+// Show video popup function
+function showVideoPopup(videoPath) {
+    if (!videoPath) return;
+    
+    videoContainer.innerHTML = `
+      <video controls width="100%" height="100%" autoplay ="true">
+        <source src="${videoPath}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    `;
+    
+    videoPopup.style.display = 'flex';
+  }
+
+// Close popup when clicking X or outside
+closePopupBtn.addEventListener('click', closeVideoPopup);
+videoPopup.addEventListener('click', (e) => {
+  if (e.target === videoPopup) {
+    closeVideoPopup();
+  }
+});
 
 // Helper functions for session storage
 function saveToSessionStorage(key, value) {
