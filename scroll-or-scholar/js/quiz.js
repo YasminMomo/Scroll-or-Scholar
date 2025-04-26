@@ -1,14 +1,14 @@
-// quiz.js - Core quiz functionality
+// quiz.js - Modified quiz functionality with Show Answer fixed
 
 // Variables to track quiz state
 let currentQuestionIndex = 0;
 let score = 0;
 let category = '';
 let questions = [];
-let timeLeft = 30; // Seconds per question
+let timeLeft = 10;
 let timerInterval;
 let userAnswers = [];
-let answerLocked = false; // Flag to track if answers are locked for current question
+let answerLocked = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   initializeQuiz();
@@ -109,8 +109,8 @@ function setupEventListeners() {
   const choiceCards = document.querySelectorAll('.choice-card');
   choiceCards.forEach(card => {
     card.addEventListener('click', () => {
-      // Only allow selection if answers aren't locked
-      if (!answerLocked) {
+      // Only allow selection if answers aren't locked and time hasn't run out
+      if (!answerLocked && timeLeft > 0) {
         // Remove selected class from all cards
         choiceCards.forEach(c => c.classList.remove('selected'));
         
@@ -133,7 +133,7 @@ function setupEventListeners() {
     });
   }
   
-  // Set up show answer functionality
+  // Set up show answer functionality (FIXED - won't reset quiz)
   const showAnswerLink = document.querySelector('.show-answer a');
   if (showAnswerLink) {
     showAnswerLink.addEventListener('click', (e) => {
@@ -142,21 +142,8 @@ function setupEventListeners() {
       // Lock answers so they can't be changed after showing the answer
       answerLocked = true;
       
-      // If no answer was selected, record it as null
-      if (userAnswers[currentQuestionIndex] === null) {
-        // The answer remains null, effectively recording "no answer"
-      }
-      
-      // Show correct answer
-      const correctAnswerIndex = questions[currentQuestionIndex].correctAnswer;
-      
-      choiceCards.forEach((card, i) => {
-        if (i === correctAnswerIndex) {
-          card.classList.add('correct');
-        } else if (userAnswers[currentQuestionIndex] === i) {
-          card.classList.add('incorrect');
-        }
-      });
+      // Show correct answer without moving to next question
+      revealCorrectAnswer();
     });
   }
   
@@ -165,6 +152,9 @@ function setupEventListeners() {
   if (nextBtn) {
     nextBtn.addEventListener('click', (e) => {
       e.preventDefault();
+      
+      // Lock answers when moving to next question
+      answerLocked = true;
       
       // If last question, go to results page
       if (currentQuestionIndex === questions.length - 1) {
@@ -180,7 +170,7 @@ function setupEventListeners() {
 
 function startTimer() {
   // Reset timer
-  timeLeft = 30;
+  timeLeft = 10;
   document.getElementById('timer').textContent = formatTime(timeLeft);
   
   // Clear any existing intervals
@@ -194,22 +184,17 @@ function startTimer() {
     document.getElementById('timer').textContent = formatTime(timeLeft);
     
     if (timeLeft <= 0) {
-      // Time's up - move to next question or finish quiz
+      // Time's up - lock answers and reveal correct answer
       clearInterval(timerInterval);
-      
-      if (currentQuestionIndex === questions.length - 1) {
-        finishQuiz();
-      } else {
-        currentQuestionIndex++;
-        displayQuestion(currentQuestionIndex);
-      }
+      answerLocked = true;
+      revealCorrectAnswer();
     }
   }, 1000);
 }
 
 function resetTimer() {
   // Reset timer
-  timeLeft = 30;
+  timeLeft = 10;
   document.getElementById('timer').textContent = formatTime(timeLeft);
   
   // Clear any existing intervals
@@ -219,6 +204,19 @@ function resetTimer() {
   
   // Start new timer
   startTimer();
+}
+
+function revealCorrectAnswer() {
+  const choiceCards = document.querySelectorAll('.choice-card');
+  const correctAnswerIndex = questions[currentQuestionIndex].correctAnswer;
+  
+  choiceCards.forEach((card, i) => {
+    if (i === correctAnswerIndex) {
+      card.classList.add('correct');
+    } else if (userAnswers[currentQuestionIndex] === i) {
+      card.classList.add('incorrect');
+    }
+  });
 }
 
 function formatTime(seconds) {
@@ -254,4 +252,23 @@ function finishQuiz() {
   
   // Navigate to results page
   window.location.href = 'results.html';
+}
+
+// Helper functions for session storage
+function saveToSessionStorage(key, value) {
+  try {
+    sessionStorage.setItem(key, JSON.stringify(value));
+  } catch (e) {
+    console.error('Error saving to session storage:', e);
+  }
+}
+
+function getFromSessionStorage(key) {
+  try {
+    const value = sessionStorage.getItem(key);
+    return value ? JSON.parse(value) : null;
+  } catch (e) {
+    console.error('Error reading from session storage:', e);
+    return null;
+  }
 }
