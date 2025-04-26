@@ -25,7 +25,7 @@
 }
 
 .quiz-page {
-    background: url(assets/bg/bg-4.png);
+    background: url(/scroll-or-scholar/assets/bg-3.png);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;

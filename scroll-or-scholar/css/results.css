@@ -18,7 +18,7 @@
 }
 
 .results-page {
-    background: url(/assets/bg/bg-3.png) ;
+    background: url(/scroll-or-scholar/assets/bg/bg-4.png);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -32,7 +32,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 150px;
 }
 
 .result-card {
@@ -114,7 +114,7 @@
 .summary-answer {
     color: var(--dark-color);
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 800;
     height: 100%;
     width: 30%;
     background-color: transparent;
@@ -124,17 +124,17 @@
 }
 
 .summary-answer.correct {
-    background-color: #4CAF50;
-  }
+    background-color: var(--correct-color);
+}
   
-  .summary-answer.incorrect {
-    background-color: #F44336;
-  }
+.summary-answer.incorrect {
+    background-color: var(--wrong-color);
+}
   
-  .user-answer, .correct-answer {
+.user-answer, .correct-answer {
     margin-top: 5px;
     font-size: 0.9em;
-  }
+}
 
 .summary-question {
     color: var(--primary-color);
@@ -149,56 +149,56 @@
     border: 1px solid var(--primary-color);
 }
 
-/* Add to results.css */
 .score-circle-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px 0;
-  }
+}
   
-  #score-circle {
+#score-circle {
     transition: stroke-dashoffset 1s ease-in-out;
-  }
+}
   
-  .score-legend {
+.score-legend {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-top: 15px;
-  }
+}
   
-  .legend-item {
+.legend-item {
     display: flex;
     align-items: center;
     gap: 5px;
-  }
+}
   
-  .legend-color {
+.legend-color {
     width: 15px;
     height: 15px;
     border-radius: 3px;
-  }
+}
   
-  .legend-text {
+.legend-text {
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
     color: #000;
-  }
+}
   
-  /* Make sure the SVG is responsive */
-  .graph svg {
+.graph svg {
     max-width: 100%;
     height: auto;
-  }
+}
   
 @media (max-width: 768px) {
+    .results-page {
+        background-position: center;
+    }
 
     .score-circle-container svg {
         width: 180px;
         height: 180px;
-      }
-
+    }
 
     .results-page h2 {
         font-size: 32px;
