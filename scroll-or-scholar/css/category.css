@@ -16,7 +16,7 @@
 }
 
 .category-page {
-    background: url(/scroll-or-scholar/assets/bg/bg-2.png);
+    background: url(/assets/bg/bg-2.png);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -58,6 +58,7 @@
     border: 0.5px solid var(--primary-color);
     border-radius: 5px;
     color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.529);
 }
 
 .category-card img {
