@@ -8,6 +8,7 @@ let questions = [];
 let timeLeft = 30; // Seconds per question
 let timerInterval;
 let userAnswers = [];
+let answerLocked = false; // Flag to track if answers are locked for current question
 
 document.addEventListener("DOMContentLoaded", () => {
   initializeQuiz();
@@ -43,6 +44,9 @@ function displayQuestion(index) {
     console.error('Question index out of bounds:', index);
     return;
   }
+  
+  // Reset answer locked state for new question
+  answerLocked = false;
   
   const questionData = questions[index];
   
@@ -105,15 +109,18 @@ function setupEventListeners() {
   const choiceCards = document.querySelectorAll('.choice-card');
   choiceCards.forEach(card => {
     card.addEventListener('click', () => {
-      // Remove selected class from all cards
-      choiceCards.forEach(c => c.classList.remove('selected'));
-      
-      // Add selected class to clicked card
-      card.classList.add('selected');
-      
-      // Store user's answer
-      const answerIndex = parseInt(card.dataset.index);
-      userAnswers[currentQuestionIndex] = answerIndex;
+      // Only allow selection if answers aren't locked
+      if (!answerLocked) {
+        // Remove selected class from all cards
+        choiceCards.forEach(c => c.classList.remove('selected'));
+        
+        // Add selected class to clicked card
+        card.classList.add('selected');
+        
+        // Store user's answer
+        const answerIndex = parseInt(card.dataset.index);
+        userAnswers[currentQuestionIndex] = answerIndex;
+      }
     });
   });
   
@@ -132,13 +139,21 @@ function setupEventListeners() {
     showAnswerLink.addEventListener('click', (e) => {
       e.preventDefault();
       
+      // Lock answers so they can't be changed after showing the answer
+      answerLocked = true;
+      
+      // If no answer was selected, record it as null
+      if (userAnswers[currentQuestionIndex] === null) {
+        // The answer remains null, effectively recording "no answer"
+      }
+      
       // Show correct answer
       const correctAnswerIndex = questions[currentQuestionIndex].correctAnswer;
       
       choiceCards.forEach((card, i) => {
         if (i === correctAnswerIndex) {
           card.classList.add('correct');
-        } else if (card.classList.contains('selected')) {
+        } else if (userAnswers[currentQuestionIndex] === i) {
           card.classList.add('incorrect');
         }
       });
