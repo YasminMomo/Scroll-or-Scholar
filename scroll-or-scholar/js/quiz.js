@@ -280,7 +280,7 @@ const popupHTML = `
   <div class="video-popup">
     <div class="video-popup-content">
       <button class="close-popup">X</button>
-        <h3 style="color: white;">Answer</h3>
+        <h3 style="color: white; font-size: 30px; margin-bottom: 20px; text-align: center;">Answer</h3>
       <div class="video-container"></div>
     </div>
   </div>
