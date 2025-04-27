@@ -153,6 +153,7 @@
 .about {
     width: 100%;
     padding: 100px 20px 60px 20px;
+    background-color: #230424;
 }
 
 .about .container {
@@ -193,7 +194,7 @@
     max-width: 350px;
     min-height: 300px;
     color: var(--primary-color);
-    background-color: var(--background-color);
+    background-color: #813f5a23;
     border: 1px solid var(--primary-color);
     padding: 20px;
     font-size: 16px;
