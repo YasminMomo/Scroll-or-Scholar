@@ -111,7 +111,7 @@
 
 /*Hero*/
 .hero {
-    background: url(/scroll-or-scholar/assets/bg/bg-1.png);
+    background: url(/assets/bg/bg-1.png);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
