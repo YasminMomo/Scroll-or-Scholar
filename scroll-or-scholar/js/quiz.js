@@ -32,11 +32,7 @@ function initializeQuiz() {
   
   // Start with the first question
   displayQuestion(0);
-  
-  // Start timer
   startTimer();
-  
-  // Set up event listeners
   setupEventListeners();
 }
 
@@ -46,21 +42,15 @@ function displayQuestion(index) {
     return;
   }
   
-  // Reset answer locked state for new question
   answerLocked = false;
-  
   const questionData = questions[index];
   
-  // Update question number
   document.querySelector('h4').textContent = `Question ${index + 1}`;
-  
-  // Update question text
   document.querySelector('.question-panel p').textContent = questionData.question;
   
-  // Update options
   const choiceCards = document.querySelectorAll('.choice-card');
   choiceCards.forEach((card, i) => {
-    const optionLetter = String.fromCharCode(65 + i); // A, B, C, D
+    const optionLetter = String.fromCharCode(65 + i);
     card.textContent = `${optionLetter}. ${questionData.options[i]}`;
     card.dataset.index = i;
     
@@ -72,17 +62,6 @@ function displayQuestion(index) {
       card.classList.add('selected');
     }
   });
-  
-  // Update media if present
-  const mediaContainer = document.querySelector('.media');
-  if (mediaContainer) {
-    if (questionData.media) {
-      mediaContainer.innerHTML = `<img src="${questionData.media}" alt="Question media">`;
-      mediaContainer.style.display = 'block';
-    } else {
-      mediaContainer.style.display = 'none';
-    }
-  }
   
   // Update hint
   const hintLink = document.querySelector('.hint a');
@@ -134,13 +113,12 @@ function setupEventListeners() {
     });
   }
   
-  // Set up show answer functionality (FIXED - won't reset quiz)
   const showAnswerLink = document.querySelector('.show-answer a');
   if (showAnswerLink) {
     showAnswerLink.addEventListener('click', (e) => {
       e.preventDefault();
       answerLocked = true;
-      revealCorrectAnswer(); // This will now show the video if available
+      revealCorrectAnswer(); 
     });
   }
 
@@ -179,8 +157,10 @@ function startTimer() {
       
       if (timeLeft <= 0) {
         clearInterval(timerInterval);
-        revealCorrectAnswer();
-        answerLocked = true;
+        if (!answerLocked) {
+          revealCorrectAnswer();
+          answerLocked = true;
+        }
       }
     }, 1000);
   }
@@ -323,7 +303,7 @@ function showVideoPopup(videoPath) {
     if (!videoPath) return;
     
     videoContainer.innerHTML = `
-      <video controls width="100%" height="100%" autoplay ="true">
+      <video controls width="100%" height="100%" autoplay ="true" loop ="true">
         <source src="${videoPath}" type="video/mp4">
         Your browser does not support the video tag.
       </video>

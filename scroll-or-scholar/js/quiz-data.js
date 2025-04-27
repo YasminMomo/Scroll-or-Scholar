@@ -115,7 +115,7 @@ const quizData = {
     ],
     "pinoy-memes": [
       {
-        "question": "Sino ang kumanta ng linyang ito? \"'Di mapigilang mag-isip Na baka sa tagal, mahulog ang loob mo sa iba🥶\"",
+        "question": "Sino ang kumanta ng linyang ito? \"'Di mapigilang mag-isip na baka sa tagal, mahulog ang loob mo sa iba🥶\"",
         "options": [
           "Orange and Lemons",
           "Callalily",
@@ -136,22 +136,22 @@ const quizData = {
         ],
         "correctAnswer": 2,
         "hint": "This is a humorous parody of a traditional Filipino Christmas carol.",
-        "video": "assets/videos/q1.mp4"
+        "video": "assets/videos/q2.mp4"
       },
       {
-        "question": "What is he about to say in this video?",
+        "question": "Anong pinakamalapit na rason upang mapatanggal si Justine Carl Argana?",
         "options": [
           "\"Anong say mo, beb?\"",
-          "\"Allen Kalbo!\"",
+          "\"Allen Kalbo! Allen Kalbo!\"",
           "\"Tol, 'di ka na cute.\"",
           "\"Wala na, finish na.\""
         ],
         "correctAnswer": 1,
         "hint": "It's a catchphrase that became a popular meme in Filipino social media.",
-        "video": "assets/videos/q1.mp4"
+        "video": "assets/videos/q3.mp4"
       },
       {
-        "question": "Which controversial line became viral during a Philippine online class after this moment?",
+        "question": "Anong popular na linya ni Alessandro Rodriguez noong kasagsagan ng pandemic?",
         "options": [
           "\"Get that thirty, bro.\"",
           "\"You want a medal for that?\"",
@@ -159,35 +159,35 @@ const quizData = {
           "\"Pasa mo 'yan sa GC.\""
         ],
         "correctAnswer": 0,
-        "hint": "It was related to getting a certain score on an assignment.",
-        "video": "assets/videos/q1.mp4"
+        "hint": "It was related to getting a certain score on an game.",
+        "video": "assets/videos/q4.mp4"
       },
       {
-        "question": "What does \"www\" supposedly mean based on the viral meme?",
+        "question": "Anong ibig sabihin kapag buntis ka?",
         "options": [
-          "World Wide Web",
-          "Wowowin",
-          "Weh, Walang WiFi?",
-          "Willie's Wild Website"
+          "Magkakaanak ka na",
+          "May inner child ka, eyy!",
+          "Pa-void po",
+          "Thank you, Lord!"
         ],
         "correctAnswer": 1,
-        "hint": "It's related to a popular Filipino TV show.",
-        "video": "assets/videos/q1.mp4"
+        "hint": "Gangsta sign",
+        "video": "assets/videos/q5.mp4"
       },
       {
-        "question": "Which of the following lines is an iconic quote from Jodi Sta. Maria's role in the TV series 'The Broken Marriage Vow'?",
+        "question": "Kailan hindi magiging masama ang pagnanakaw?",
         "options": [
-          "\"Papunta pa lang tayo sa exciting part!\"",
-          "\"Lahat ng hirap at sakit, ibabalik ko sa inyo. Matitikman ninyo ang batas ng isang api!\"",
-          "\"Hindi mo ako kayang patayin.\"",
-          "\"Mahal kita, pero hindi kita kayang pigilan.\""
+          "Kapag ang iyong konsensya ay clear",
+          "Kapag walang nakatingin",
+          "Kapag burgis ang ninakawan",
+          "Kapag mahal ka na niya"
         ],
         "correctAnswer": 0,
-        "hint": "This line became very popular and was used in many memes related to confrontations.",
-        "video": "assets/videos/q1.mp4"
+        "hint": "News interview.",
+        "video": "assets/videos/q6.mp4"
       },
       {
-        "question": "What was the response in the video when asked, 'Malaki bayan?'",
+        "question": "Anong tamang sagot kapag tinanong ka ng 'Malaki bayan?'",
         "options": [
           "\"Malaki to!\"",
           "\"Babae po ako\"",
@@ -196,7 +196,7 @@ const quizData = {
         ],
         "correctAnswer": 1,
         "hint": "The response clarified a misunderstanding about gender.",
-        "video": "assets/videos/q1.mp4"
+        "video": "assets/videos/q7.mp4"
       },
       {
         "question": "Complete the lyrics: \"Ligaw na _____ sinalo, Di ko agad napagtanto\"",
@@ -208,10 +208,10 @@ const quizData = {
         ],
         "correctAnswer": 1,
         "hint": "The word refers to an animal.",
-        "video": "assets/videos/q1.mp4"
+        "video": "assets/videos/q8.mp4"
       },
       {
-        "question": "Complete the message from the viral screenshot:",
+        "question": "Complete the lyrics: \“You miss my body?\” \"I’ll ________ nalang.\”",
         "options": [
           "Go away na",
           "Sleep na lang",
@@ -220,7 +220,7 @@ const quizData = {
         ],
         "correctAnswer": 3,
         "hint": "This message became a popular meme for its unexpected and humorous nature.",
-        "video": "assets/videos/q1.mp4"
+        "video": "assets/videos/q9.mp4"
       },
       {
         "question": "Complete the lyrics as sung by Marian Rivera: \"Story of my life searching for a life __________\"",
@@ -232,7 +232,7 @@ const quizData = {
         ],
         "correctAnswer": 1,
         "hint": "The pronunciation in the viral clip is what made this moment famous.",
-        "video": "assets/videos/q1.mp4"
+        "video": "assets/videos/q10.mp4"
       }
     ]
   };
