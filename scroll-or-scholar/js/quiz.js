@@ -32,7 +32,6 @@ function initializeQuiz() {
   
   // Start with the first question
   displayQuestion(0);
-  startTimer();
   setupEventListeners();
 }
 
@@ -142,10 +141,23 @@ function setupEventListeners() {
     });
   }
 }
-
 function startTimer() {
     timeLeft = 10;
     document.getElementById('timer').textContent = formatTime(timeLeft);
+    //create an an element that will play a timer sound in each question
+    //why is is double playing the sound in the first instance?
+    const timerSound = document.createElement('audio');
+    timerSound.src = '/assets/audios/timer.mp3';
+    timerSound.play();
+
+    //remove the sound after 10 seconds and when the next buttion is clicked
+    const nextBtn = document.querySelector('.result-btn a');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        timerSound.pause();
+        timerSound.currentTime = 0;
+      });
+    }
     
     if (timerInterval) {
       clearInterval(timerInterval);

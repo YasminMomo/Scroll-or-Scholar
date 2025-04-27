@@ -139,7 +139,7 @@ const quizData = {
         "video": "assets/videos/q2.mp4"
       },
       {
-        "question": "Anong pinakamalapit na rason upang mapatanggal si Justine Carl Argana?",
+        "question": "Anong pinakamalapit na rason upang mapatanggal si Justine Carl Argana sa kanyang section?",
         "options": [
           "\"Anong say mo, beb?\"",
           "\"Allen Kalbo! Allen Kalbo!\"",
@@ -151,7 +151,7 @@ const quizData = {
         "video": "assets/videos/q3.mp4"
       },
       {
-        "question": "Anong popular na linya ni Alessandro Rodriguez noong kasagsagan ng pandemic?",
+        "question": "Anong popular na linya ni Alissandro Rodriguez noong kasagsagan ng pandemic?",
         "options": [
           "\"Get that thirty, bro.\"",
           "\"You want a medal for that?\"",
